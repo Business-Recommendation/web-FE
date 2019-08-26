@@ -8,6 +8,8 @@ export const POST_REGISTER_START = 'POST_REGISTER_START'
 export const POST_REGISTER_SUCCESS = 'POST_REGISTER_SUCCESS'
 export const POST_REGISTER_FAIL = 'POST_REGISTER_FAIL'
 
+export const LOGOUT_USER = 'LOGOUT_USER'
+
 export const login = (creds, history) => dispatch => {
     dispatch({ type: POST_LOGIN_START})
     axios
@@ -33,4 +35,8 @@ export const register = (creds, history) => dispatch => {
         .catch(err => {
             dispatch({ type: POST_REGISTER_FAIL})
         })
+}
+
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT_USER })
 }
