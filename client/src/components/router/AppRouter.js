@@ -3,20 +3,22 @@ import { Switch, Route } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
 import Login from '../Login'
+import Disclaimer from '../footer/Disclaimer'
+import TermsAndConditions from '../footer/TermsAndConditions'
 
 const AppRouter = () => {
     return (
         <>
             <Switch>
-                {/* <Route exact to='/' component={} />  */}
-                {/* <Route to='/register' component={} /> */}
-                <Route to='/login' component={Login} />
-                {/* <PrivateRoute to='/listings' component={} /> */}
-                {/* <PrivateRoute to='/stats' component={} /> */}
-                {/* <PrivateRoute to='/update-listing' component={} /> */}
-                {/* <PrivateRoute to='/add-listing' component={} /> */}
-                {/* <Route to='/disclaimer' component={} /> */}
-                {/* <Route to='/terms-and-conditions' component={} /> */}
+                {/* <Route exact path='/' component={} />  */}
+                {/* <Route path='/register' component={} /> */}
+                <Route path='/login' component={Login} />
+                {/* <PrivateRoute path='/listings' component={} /> */}
+                {/* <PrivateRoute path='/stats' component={} /> */}
+                {/* <PrivateRoute path='/update-listing' component={} /> */}
+                {/* <PrivateRoute path='/add-listing' component={} /> */}
+                <Route path='/disclaimer' component={Disclaimer} />
+                <Route path='/terms-and-conditions' component={TermsAndConditions} />
             </Switch>
         </>
     )
