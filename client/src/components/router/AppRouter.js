@@ -3,14 +3,15 @@ import { Switch, Route } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
 import Login from '../Login'
+import Register from '../Register'
 
 const AppRouter = () => {
     return (
         <>
             <Switch>
                 {/* <Route exact to='/' component={} />  */}
-                {/* <Route to='/register' component={} /> */}
-                <Route to='/login' component={Login} />
+                <Route exact to='/register' component={Register} />
+                <Route exact to='/login' component={Login} />
                 {/* <PrivateRoute to='/listings' component={} /> */}
                 {/* <PrivateRoute to='/stats' component={} /> */}
                 {/* <PrivateRoute to='/update-listing' component={} /> */}
