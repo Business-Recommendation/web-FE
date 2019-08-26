@@ -4,13 +4,19 @@ import NavBar from './Components/NavBar'
 import AppRouter from './Components/router/AppRouter'
 import Footer from './Components/footer/Footer'
 
+import { PageContainer, ContentWrap } from './StyledComps'
+
 function App() {
   return (
-    <div>
+    <PageContainer>
       <NavBar />
-      <AppRouter />
+
+      <ContentWrap>
+        <AppRouter />
+      </ContentWrap>
+      
       <Footer />
-    </div>
+    </PageContainer>
   )
 }
 

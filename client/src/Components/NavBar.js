@@ -4,7 +4,7 @@ import { connect, useSelector } from 'react-redux'
 
 import { logout } from '../actions'
 
-import { StyledLogo, StyledNavLink, StyledNavLinkContainer } from '../StyledComps'
+import { StyledNavBar, StyledLogo, StyledNavLink, StyledNavLinkContainer } from '../StyledComps'
 
 const NavBar = ({ logout }) => {
     const isLoggedIn = useSelector(state => state.isLoggedIn)
@@ -15,7 +15,7 @@ const NavBar = ({ logout }) => {
     }
 
     return (
-        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', backgroundColor:'#423ABA'}}>
+        <StyledNavBar>
             <Link to='/'>
                 <StyledLogo src={require(`../assets/logo.png`)} alt='Better Business Logo'  />
             </Link>
@@ -32,7 +32,7 @@ const NavBar = ({ logout }) => {
                 </StyledNavLinkContainer>
                 )
             }
-        </div>
+        </StyledNavBar>
     )
 }
 
