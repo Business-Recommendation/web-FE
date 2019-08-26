@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
+import Login from '../Login'
 
 const AppRouter = () => {
     return (
@@ -9,7 +10,7 @@ const AppRouter = () => {
             <Switch>
                 {/* <Route exact to='/' component={} />  */}
                 {/* <Route to='/register' component={} /> */}
-                {/* <Route to='/login' component={} /> */}
+                <Route to='/login' component={Login} />
                 {/* <PrivateRoute to='/listings' component={} /> */}
                 {/* <PrivateRoute to='/stats' component={} /> */}
                 {/* <PrivateRoute to='/update-listing' component={} /> */}
