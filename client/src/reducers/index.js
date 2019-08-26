@@ -1,7 +1,10 @@
 import {
     POST_LOGIN_START,
     POST_LOGIN_SUCCESS,
-    POST_LOGIN_FAIL
+    POST_LOGIN_FAIL,
+    POST_REGISTER_START,
+    POST_REGISTER_SUCCESS,
+    POST_REGISTER_FAIL
 } from '../actions'
 
 const initialState = {
@@ -11,10 +14,9 @@ const initialState = {
     isLoading: false
 }
 
-export const businessRecommendReducer = (state=initialState, action) => {
-    
-    switch(action.type)
-    {
+export const businessRecommendReducer = (state = initialState, action) => {
+
+    switch (action.type) {
         case POST_LOGIN_START:
             return {
                 ...state,
@@ -27,6 +29,22 @@ export const businessRecommendReducer = (state=initialState, action) => {
                 isLoggedIn: true
             }
         case POST_LOGIN_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
+            }
+        case POST_REGISTER_START:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case POST_REGISTER_SUCCESS:
+            return {
+                ...state,
+                isLoading: false
+            }
+        case POST_REGISTER_FAIL:
             return {
                 ...state,
                 isLoading: false,

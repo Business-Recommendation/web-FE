@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
 import Login from '../Login'
+import Register from '../Register'
 import Disclaimer from '../footer/Disclaimer'
 import TermsAndConditions from '../footer/TermsAndConditions'
 
@@ -11,7 +12,7 @@ const AppRouter = () => {
         <>
             <Switch>
                 {/* <Route exact path='/' component={} />  */}
-                {/* <Route path='/register' component={} /> */}
+                <Route path='/register' component={Register} />
                 <Route path='/login' component={Login} />
                 {/* <PrivateRoute path='/listings' component={} /> */}
                 {/* <PrivateRoute path='/stats' component={} /> */}
