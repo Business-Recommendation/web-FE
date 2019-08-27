@@ -1,9 +1,16 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
 
 // Constants
 const appBlue = '#423ABA'
+
+export const GlobalStyles = createGlobalStyle`
+  body {
+    @import url('https://db.onlinewebfonts.com/c/7a20d101126c5370e8b5811da3569fb4?family=Sansation');
+    font-family: 'Sansation', Sans-Serif;
+  }
+`
 
 const size = {
     mobileS: '320px',
@@ -23,7 +30,6 @@ const device = {
 export const PageContainer = styled.div`
     position: relative;
     min-height: 100vh;
-    background-color: white;
     h1:first-child,
     h2:first-child,
     h3:first-child,
@@ -97,10 +103,12 @@ export const StyledLandingPage = styled.div`
 
     h1:first-child {
         margin-top: 15px;
+        color: black;
     }
 
     h2:first-child {
         margin-top: 0;
+        color: black;
     }
 
     .ui.grid.tablet-show {
