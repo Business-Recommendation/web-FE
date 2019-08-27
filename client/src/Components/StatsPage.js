@@ -40,3 +40,5 @@ const StatsPage = (props) =>{
         </Card.Group>
     )
 }
+
+export default StatsPage;

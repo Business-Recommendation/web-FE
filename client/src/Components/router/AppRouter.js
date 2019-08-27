@@ -8,6 +8,8 @@ import Register from '../Register'
 import Disclaimer from '../footer/Disclaimer'
 import TermsAndConditions from '../footer/TermsAndConditions'
 import UpdateForm from '../updateForm'
+import ListingPage from '../ListingPage'
+import StatsPage from '../StatsPage'
 
 const AppRouter = () => {
     return (
@@ -16,8 +18,8 @@ const AppRouter = () => {
                 <Route exact path='/' component={LandingPage} /> 
                 <Route path='/register' component={Register} />
                 <Route path='/login' component={Login} />
-                {/* <PrivateRoute path='/listings' component={} /> */}
-                {/* <PrivateRoute path='/stats' component={} /> */}
+                <PrivateRoute path='/listings' component={ListingPage} /> 
+                <PrivateRoute path='/stats' component={StatsPage} />
                 <PrivateRoute path='/update-listing' component={UpdateForm} /> 
                 {/* <PrivateRoute path='/add-listing' component={} /> */}
                 <Route path='/disclaimer' component={Disclaimer} />
