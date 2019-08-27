@@ -3,9 +3,14 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
+import './style.css'
+
 const UpdateForm = ({ errors, touched, values, status }) => {
   const [business, setBusiness] = useState([]);
   console.log("this is touched", touched);
+
+  const states = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY']
+
   useEffect(() => {
     if (status) {
       setBusiness([...business, status]);
@@ -29,9 +34,11 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 
         <Field component="select" className="state-select" name="state">
           <option>State</option>
-          <option value="ny">NY</option>
-          <option value="ca">CA</option>
-          <option value="fl">FL</option>
+          {
+            states.map(state => {
+              return <option value={state}>{state}</option>
+            })
+          }
         </Field>
 
         <Field type="text" name="zipcode" placeholder="Zip Code" />
@@ -55,7 +62,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 
 
 const FormikUpdateForm = withFormik({
-  
+
   mapPropsToValues({ companies, address, city, zipcode, state }) {
     return {
       state: state || "",
@@ -81,7 +88,7 @@ const FormikUpdateForm = withFormik({
       })
       .catch(err => console.log(err.response));
   }
-})(UpdateForm); 
+})(UpdateForm);
 export default FormikUpdateForm;
 
 
