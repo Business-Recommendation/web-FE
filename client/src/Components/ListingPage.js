@@ -10,17 +10,19 @@ const ListingPage = (props) =>{
             }
             <Card>
                 <Card.Header>{props.name}</Card.Header>
-                <Button onClick={}> Update Business </Button>
-                <Button onClick={}> View Stats </Button>
-                <Button onClick={}> Delete Business </Button>
+                <Button > Update Business </Button>
+                <Button > View Stats </Button>
+                <Button > Delete Business </Button>
             </Card>
 
             {//Card that hold a button to add more business
             }
             <Card>
-                <Button onClick={}>Add New Business</Button>
+                <Button >Add New Business</Button>
             </Card>
 
         </Card.Group>
     )
 }
+
+export default ListingPage;
