@@ -15,6 +15,10 @@ export const GET = "GET"
 export const PUSH = "PUSH"
 export const FAILED="FAILED"
 
+export const PUT_DATA_START = 'PUT_DATA_START'
+export const PUT_DATA_SUCCESS = 'PUT_DATA_SUCCESS'
+export const PUT_DATA_FAIL = 'PUT_DATA_FAIL'
+
 export const login = (creds, history) => dispatch => {
     dispatch({ type: POST_LOGIN_START})
     axios
@@ -73,4 +77,12 @@ export const grabData = () =>{
             dispatch({type: FAILED, payload: err.response})
         })
     }
+}
+
+export const putData = (listing) => dispatch => {
+    dispatch({ type: PUT_DATA_START })
+    axios
+        .put(`https://bizrecommendations.herokuapp.com/UPDATE/LINK/${listing.id}`, listing) //need to change url based on docs
+        .then(res => dispatch({ type: PUT_DATA_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: PUT_DATA_FAIL, payload: err.response }))
 }
