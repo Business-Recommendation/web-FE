@@ -21,9 +21,6 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           <p className="error">{errors.companies}</p>
         )}
 
-        <Field type="text" name="address" placeholder="Street Address" />
-        {touched.address && errors.address && <p className="error">{errors.address}</p>}
-
         <Field type="text" name="city" placeholder="City" />
         {touched.city && errors.city && <p className="error">{errors.city}</p>}
 
@@ -34,8 +31,8 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           <option value="fl">FL</option>
         </Field>
 
-        <Field type="text" name="zipcode" placeholder="Zip Code" />
-        {touched.zipcode && errors.zipcode && <p className="error">{errors.zipcode}</p>}
+        <Field type="text" name="yelp" placeholder="Yelp Link" />
+        {touched.yelp && errors.yelp && <p className="error">{errors.yelp}</p>}
 
         <button type="submit">Update Biz</button>
       </Form>
@@ -59,9 +56,8 @@ const FormikUpdateForm = withFormik({
   mapPropsToValues({ companies, address, city, zipcode, state }) {
     return {
       state: state || "",
-      zipcode: zipcode || "",
       companies: companies || "",
-      address: address || "",
+      yelp: yelp || "",
       city: city || ""
     };
   },
