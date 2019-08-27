@@ -17,7 +17,7 @@ export const login = (creds, history) => dispatch => {
         .then(res => {
             dispatch({ type: POST_LOGIN_SUCCESS })
             localStorage.setItem('token', res.data.token)
-            // history.push('/listings')
+            // history.push('/listing')
         })
         .catch(err => {
             dispatch({ type: POST_LOGIN_FAIL, payload: err})

@@ -18,7 +18,7 @@ const AppRouter = () => {
                 <Route path='/login' component={Login} />
                 {/* <PrivateRoute path='/listings' component={} /> */}
                 {/* <PrivateRoute path='/stats' component={} /> */}
-                 <PrivateRoute path='/update-listing' component={UpdateForm} /> 
+                <PrivateRoute path='/update-listing' component={UpdateForm} /> 
                 {/* <PrivateRoute path='/add-listing' component={} /> */}
                 <Route path='/disclaimer' component={Disclaimer} />
                 <Route path='/terms-and-conditions' component={TermsAndConditions} />
