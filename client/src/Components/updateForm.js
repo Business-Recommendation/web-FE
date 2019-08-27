@@ -26,7 +26,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           <p className="error">{errors.companies}</p>
         )}
 
-        <Field type="text" name="city" placeholder="City" />
+        <Field type="text" name="city" placeholder="City" className="city"/>
         {touched.city && errors.city && <p className="error">{errors.city}</p>}
 
         <Field component="select" className="state-select" name="state">
