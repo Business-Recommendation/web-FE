@@ -2,11 +2,11 @@ import React from 'react'
 
 import { Grid } from 'semantic-ui-react'
 
-import { StyledTagLine, StyledLandingPageHR, StyledLandingPageSubheader, StylingLandingPageImg, StylingLandingPageArrow } from '../StyledComps'
+import { StyledLandingPage, StyledTagLine, StyledLandingPageHR, StyledLandingPageSubheader, StylingLandingPageImg, StylingLandingPageArrow } from '../StyledComps'
 
 const LandingPage = () => {
     return (
-        <div>
+        <StyledLandingPage>
             <StyledTagLine>Biz Smarter, Not Harder.</StyledTagLine>
 
             <StyledLandingPageHR/>
@@ -50,7 +50,7 @@ const LandingPage = () => {
                     <StylingLandingPageImg src={require(`../assets/improve.png`)} alt='achievement unlocked' />
                 </Grid.Column>
             </Grid>
-        </div>
+        </StyledLandingPage>
     )
 }
 

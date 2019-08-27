@@ -3,19 +3,19 @@ import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
 
 // Constants
-const appPurple = '#423ABA'
+const appBlue = '#423ABA'
 
 // @@@@@@@@@@@@@@@@@@@@ App @@@@@@@@@@@@@@@@@@@@
 export const PageContainer = styled.div`
     position: relative;
     min-height: 100vh;
-
     h1:first-child,
     h2:first-child,
     h3:first-child,
     h4:first-child,
     h5:first-child,
-    h6:first-child {
+    h6:first-child,
+    p:first-child {
         margin-top: 25.2px;
     }
 `
@@ -29,13 +29,13 @@ export const StyledNavBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: ${appPurple};
+    background-color: ${appBlue};
 `
 
 export const StyledLogo = styled.img`
     margin: 5px 0 5px 10px;
-    height: 85%;
-    width: 85%;
+    height: 75%;
+    width: 75%;
 `
 
 export const StyledNavLink = styled(NavLink)`
@@ -52,16 +52,28 @@ export const StyledNavLinkContainer = styled.div`
 `
 
 // @@@@@@@@@@@@@@@@@@@@ Landing Page @@@@@@@@@@@@@@@@@@@@
+export const StyledLandingPage = styled.div`
+    h1:first-child {
+        margin-top: 15px;
+    }
+
+    h2:first-child {
+        margin-top: 0;
+    }
+`
+
 export const StyledTagLine = styled.h1`
+    font-family: 'Sansation';
     text-align: center;
     font-size: 3.6rem;
 `
 
 export const StyledLandingPageHR = styled.hr`
-    margin: 1rem 40%;
+    margin: 0.5rem 40%;
 `
 
 export const StyledLandingPageSubheader = styled.h2`
+    font-family: 'Sansation';
     text-align: center;
     font-size: 3.2rem;
 `
@@ -85,10 +97,11 @@ export const StyledFooter = styled.div`
     align-items: center;
     justify-content: space-between;
     color: white;
-    background-color: ${appPurple};
+    background-color: ${appBlue};
 `
 
-export const StyledCopyright = styled.h1`
+export const StyledCopyright = styled.p`
+    font-family: 'Sansation';
     font-size: 1.4rem;
-    margin-left: 30px;
+    margin: 10px 0 10px 30px;
 `
