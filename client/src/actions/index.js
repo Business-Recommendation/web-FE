@@ -10,6 +10,11 @@ export const POST_REGISTER_FAIL = 'POST_REGISTER_FAIL'
 
 export const LOGOUT_USER = 'LOGOUT_USER'
 
+//Specific to the getting and pushing of data. To be used on update and Add
+export const GET = "GET"
+export const PUSH = "PUSH"
+export const FAILED="FAILED"
+
 export const login = (creds, history) => dispatch => {
     dispatch({ type: POST_LOGIN_START})
     axios
@@ -39,4 +44,33 @@ export const register = (creds, history) => dispatch => {
 
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT_USER })
+}
+
+export const pushData= (props) =>{
+    return dispatch =>{
+        dispatch ({type: GET });
+        axios.post("N/A", props)
+        .then(res =>{
+            console.log("push", res)
+            dispatch({type: GET, payload:res.data});
+        })
+        .catch(err => {
+            dispatch({type: FAILED, payload: err.response})
+        })
+    }
+
+}
+
+export const grabData = () =>{
+    return dispatch =>{
+        dispatch ({type: PUSH });
+        axios.get("N/A")
+        .then(res =>{
+            console.log("pull",res.data)
+            dispatch({type: PUSH, payload:res.data});
+        })
+        .catch(err => {
+            dispatch({type: FAILED, payload: err.response})
+        })
+    }
 }
