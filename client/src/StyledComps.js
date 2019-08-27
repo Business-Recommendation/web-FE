@@ -39,7 +39,7 @@ export const StyledLogo = styled.img`
 `
 
 export const StyledNavLink = styled(NavLink)`
-    font-family: 'Sansation';
+    font-family: 'Sansation', Sans-Serif;
     font-size: 1.4rem;
     color: white;
     text-decoration: none;
@@ -63,7 +63,7 @@ export const StyledLandingPage = styled.div`
 `
 
 export const StyledTagLine = styled.h1`
-    font-family: 'Sansation';
+    font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.6rem;
 `
@@ -73,7 +73,7 @@ export const StyledLandingPageHR = styled.hr`
 `
 
 export const StyledLandingPageSubheader = styled.h2`
-    font-family: 'Sansation';
+    font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.2rem;
 `
@@ -98,10 +98,14 @@ export const StyledFooter = styled.div`
     justify-content: space-between;
     color: white;
     background-color: ${appBlue};
+
+    p:first-child {
+        margin-top: 10px;
+    }
 `
 
 export const StyledCopyright = styled.p`
-    font-family: 'Sansation';
+    font-family: 'Sansation', Sans-Serif;
     font-size: 1.4rem;
     margin: 10px 0 10px 30px;
 `
