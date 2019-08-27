@@ -54,7 +54,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 };
 
 
-const FormikAnimalForm = withFormik({
+const FormikUpdateForm = withFormik({
   
   mapPropsToValues({ companies, address, city, zipcode, state }) {
     return {
