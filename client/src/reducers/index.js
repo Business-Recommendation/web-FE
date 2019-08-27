@@ -5,7 +5,10 @@ import {
     POST_REGISTER_START,
     POST_REGISTER_SUCCESS,
     POST_REGISTER_FAIL,
-    LOGOUT_USER
+    LOGOUT_USER,
+    GET,
+    PUSH,
+    FAILED
 } from '../actions'
 
 const initialState = {
@@ -55,6 +58,23 @@ export const businessRecommendReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggedIn: false
+            }
+        case GET:
+            return{
+                ...state,
+                listings: action.payload,
+                error: ''
+            }
+        case PUSH:
+            return{
+                ...state,
+                listings: [...state.listings, action.payload],
+                error:''
+            }
+        case FAILED:
+            return{
+                ...state,
+                error:'There is an error'
             }
         default:
             return state
