@@ -14,7 +14,7 @@ import {
 const initialState = {
     listings: [],
     error: '',
-    isLoggedIn: false,
+    isLoggedIn: localStorage.getItem('token') ? true : false,
     isLoading: false
 }
 
