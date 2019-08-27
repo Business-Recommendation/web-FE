@@ -11,17 +11,6 @@ body {
   padding: 0;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #5eb7b3;
-  background-image: url("https://images.unsplash.com/photo-1418405752269-40caf13f90ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80");
-  background-color: #cccccc;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .App {
   height: 100%;
@@ -33,8 +22,7 @@ body {
 .business-form {
   width: 775px;
   height: 470px;
-  margin: 300px 300px 300px 300px;
-  border: 1px red solid;
+  margin: 150px 150px 300px 300px;
   padding: 32px;
   font-weight: bold;
   background-color: #423ABA;
