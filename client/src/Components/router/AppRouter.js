@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import PrivateRoute from './PrivateRoute'
+import LandingPage from '../LandingPage'
 import Login from '../Login'
 import Register from '../Register'
 import Disclaimer from '../footer/Disclaimer'
@@ -11,7 +12,7 @@ const AppRouter = () => {
     return (
         <>
             <Switch>
-                {/* <Route exact path='/' component={} />  */}
+                <Route exact path='/' component={LandingPage} /> 
                 <Route path='/register' component={Register} />
                 <Route path='/login' component={Login} />
                 {/* <PrivateRoute path='/listings' component={} /> */}
