@@ -1,19 +1,43 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { connect, useSelector } from 'react-redux'
 
-import { StyledFooter, StyledCopyright, StyledNavLink, StyledNavLinkContainer } from '../../StyledComps'
+import { logout } from '../../actions'
 
-const Footer = () => {
+import { StyledFooter, StyledCopyright, StyledFooterNavLink, StyledFooterNavLinkContainer, StyledMobileNav } from '../../StyledComps'
+
+const Footer = ({ logout }) => {
+    const isLoggedIn = useSelector(state => state.isLoggedIn)
+
+    const logoutUser = () => {
+        localStorage.removeItem('token')
+        logout()
+    }
+    
     return (
         <StyledFooter>
             <StyledCopyright>ALL RIGHTS RESERVED ©</StyledCopyright>
 
-            <StyledNavLinkContainer>
-                <StyledNavLink to='disclaimer'>DISCLAIMER</StyledNavLink>
-                <StyledNavLink to='terms-and-conditions'>TERMS & CONDITIONS</StyledNavLink>
-            </StyledNavLinkContainer>
+            <StyledFooterNavLinkContainer>
+                <StyledFooterNavLink to='disclaimer'>DISCLAIMER</StyledFooterNavLink>
+                <StyledFooterNavLink to='terms-and-conditions'>TERMS & CONDITIONS</StyledFooterNavLink>
+            </StyledFooterNavLinkContainer>
+
+            {!isLoggedIn ? (
+                <StyledMobileNav>
+                    <StyledFooterNavLink to='/register'>REGISTER</StyledFooterNavLink>
+                    <i className='inav'/>
+                    <StyledFooterNavLink to='/login'>LOG IN</StyledFooterNavLink>
+                </StyledMobileNav>
+                ) : (
+                <StyledMobileNav>
+                    <StyledFooterNavLink to='/listings'>YOUR BIZ</StyledFooterNavLink>
+                    <i className='inav'/>
+                    <StyledFooterNavLink to='/login' onClick={() => logoutUser()}>LOG OUT</StyledFooterNavLink>
+                </StyledMobileNav>
+                )
+            }
         </StyledFooter>
     )
 }
 
-export default Footer
+export default connect(null, { logout })(Footer)
