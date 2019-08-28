@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
 import {Button, Card, Input} from "semantic-ui-react"
-import {pushData, grabData} from "../actions"
 import { Link } from 'react-router-dom'
 
-
+import {pushData, grabData, deleteData} from "../actions"
 import Business from "./Business.js"
 
 const ListingPage = (props) =>{
@@ -53,7 +52,7 @@ const ListingPage = (props) =>{
                 <Link to='/stats'><Button >View Stats</Button> </Link>               
             </Card>
 
-            {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.data.id}/>)}
+            {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.data.id} deleteData={props.deleteData}/>)}
 
         </Card.Group>
     )
@@ -65,4 +64,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, {pushData, grabData})(ListingPage);
+export default connect(mapStateToProps, {pushData, grabData, deleteData})(ListingPage);

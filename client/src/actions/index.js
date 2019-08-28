@@ -98,9 +98,10 @@ export const putData = (listing) => dispatch => {
 }
 
 export const deleteData = (listing) => dispatch => {
+    console.log(listing)
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
-        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
+        .delete(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
         .then(res => dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_DATA_FAIL, payload: err.response }))
 }

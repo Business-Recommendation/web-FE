@@ -103,7 +103,7 @@ export const businessRecommendReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                error: `${action.payload.status} ${action.payload.statusText} - ${action.payload.data.Error}` //may need to change pending how it comes in
+                error: `${action.payload.status} - ${action.payload.statusText}`
             }
         case DELETE_DATA_START:
             return {
@@ -122,7 +122,7 @@ export const businessRecommendReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                error: `${action.payload.status} ${action.payload.statusText} - ${action.payload.data.Error}` //may need to change pending how it comes in
+                error: `${action.payload.status} - ${action.payload.statusText}`
             }
         default:
             return state
