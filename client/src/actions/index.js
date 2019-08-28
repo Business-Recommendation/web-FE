@@ -36,7 +36,7 @@ export const login = (creds, history) => dispatch => {
             history.push('/listings')
         })
         .catch(err => {
-            dispatch({ type: POST_LOGIN_FAIL, payload: err})
+            dispatch({ type: POST_LOGIN_FAIL, payload: err.response.data.error})
         })
 }
 
@@ -49,7 +49,7 @@ export const register = (creds, history) => dispatch => {
             history.push('/login')
         })
         .catch(err => {
-            dispatch({ type: POST_REGISTER_FAIL})
+            dispatch({ type: POST_REGISTER_FAIL, payload: err.response.data.error})
         })
 }
 

@@ -20,6 +20,7 @@ body {
 }
 
 .business-form {
+  
   width: 775px;
   height: 470px;
   margin: 150px 150px 300px 300px;
@@ -40,7 +41,8 @@ textarea {
   margin-top: 32px;
   padding: 0.5rem;
   font-size: 16px;
-  width: 100%;
+  width: 642px;
+  height: 45px;
   display: block;
   color: #4d2d52;
   border: 2px solid rgba(77, 45, 82, 0.8);
@@ -56,7 +58,7 @@ input:focus {
 .city {
   display: block;
   height: 45px;
-  width: 95px;
+  width: 333px;
 }
 input.error {
   border-color: red;
