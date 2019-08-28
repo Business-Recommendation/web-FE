@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
-import {Button, Card, Image} from "semantic-ui-react"
+import {Button, Card, Input} from "semantic-ui-react"
 import {pushData, grabData} from "../actions"
 
 import Business from "./Business.js"
@@ -31,24 +31,27 @@ const ListingPage = (props) =>{
         })
     };
 
-    console.log("hi", props.list.listings)
+    console.log("hello", props.list.listings)
 
     //I will have to map through the data to add the card with Biz name and buttons
     // 
     return (
-        <Card.Group>
+        <Card.Group style={{marginTop:"2.5px"}}>
+            <br></br>
 
             {//Card that hold a button to add more business}
              }
-            <Card>
+            <Card style={{width: "650px" }}>
                 <form onSubmit={addNewBusiness}>
-                    <label>Restaurant Name</label><input type ="text" name="name"value={list.name} onChange={handleChanges} placeholder="Restaurant Name"/>
-                    <label>Yelp Url</label><input type ="text" name="yelp_url" value={list.yelp_url} onChange={handleChanges} placeholder="Yelp URL"/>
-                    <Button  >Add New Business</Button>
-                </form>         
+                    <label>Restaurant Name</label><Input type ="text" name="name"value={list.name} onChange={handleChanges} placeholder="Restaurant Name" />
+                    <label>Yelp Url</label><Input type ="text" name="yelp_url" value={list.yelp_url} onChange={handleChanges} placeholder="Yelp URL"/>
+                    <Button >Add New Business</Button>
+                    
+                </form>  
+                <Button >View Stats</Button>       
             </Card>
 
-            {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.id}/>)}
+            {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.data.id}/>)}
 
         </Card.Group>
     )
