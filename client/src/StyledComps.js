@@ -5,13 +5,6 @@ import { Image } from 'semantic-ui-react'
 // Constants
 const appBlue = '#423ABA'
 
-export const GlobalStyles = createGlobalStyle`
-  body {
-    @import url('https://db.onlinewebfonts.com/c/7a20d101126c5370e8b5811da3569fb4?family=Sansation');
-    font-family: 'Sansation', Sans-Serif;
-  }
-`
-
 const size = {
     mobileS: '320px',
     mobileM: '375px',
@@ -25,6 +18,14 @@ const device = {
     mobileL: `(max-width: ${size.mobileL})`,
     tablet: `(max-width: ${size.tablet})`
 }
+
+// @@@@@@@@@@@@@@@@@@@@ Global @@@@@@@@@@@@@@@@@@@@
+export const GlobalStyles = createGlobalStyle`
+  body {
+    @import url('https://db.onlinewebfonts.com/c/7a20d101126c5370e8b5811da3569fb4?family=Sansation');
+    font-family: 'Sansation', Sans-Serif;
+  }
+`
 
 // @@@@@@@@@@@@@@@@@@@@ App @@@@@@@@@@@@@@@@@@@@
 export const PageContainer = styled.div`
@@ -250,6 +251,7 @@ export const StyledFooter = styled.div`
     justify-content: space-between;
     color: white;
     background-color: ${appBlue};
+    border-top: solid black 1px;
 
     p:first-child {
         position: relative;
@@ -282,7 +284,7 @@ export const StyledFooterNavLink = styled(NavLink)`
     @media ${device.tablet} {
         text-align: center;
         margin: 1rem 0;
-        width: 50%;
+        width: 45%;
     }
 
     @media ${device.mobileL} {
