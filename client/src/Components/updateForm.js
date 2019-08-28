@@ -26,10 +26,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           <p className="error">{errors.companies}</p>
         )}
 
-        <Field type="text" name="address" placeholder="Street Address" />
-        {touched.address && errors.address && <p className="error">{errors.address}</p>}
-
-        <Field type="text" name="city" placeholder="City" />
+        <Field type="text" name="city" placeholder="City" className="city"/>
         {touched.city && errors.city && <p className="error">{errors.city}</p>}
 
         <Field component="select" className="state-select" name="state">
@@ -41,8 +38,8 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           }
         </Field>
 
-        <Field type="text" name="zipcode" placeholder="Zip Code" />
-        {touched.zipcode && errors.zipcode && <p className="error">{errors.zipcode}</p>}
+        <Field type="text" name="address" placeholder="Yelp Link" />
+        {touched.address && errors.address && <p className="error">{errors.address}</p>}
 
         <button type="submit">Update Biz</button>
       </Form>
@@ -53,7 +50,6 @@ const UpdateForm = ({ errors, touched, values, status }) => {
           <li>Address: {business.address}</li>
           <li>City: {business.city}</li>
           <li>state: {business.state}</li>
-          <li>:zipcode: {business.zipcode}</li>
         </ul>
       ))}
     </div>
@@ -66,9 +62,8 @@ const FormikUpdateForm = withFormik({
   mapPropsToValues({ companies, address, city, zipcode, state }) {
     return {
       state: state || "",
-      zipcode: zipcode || "",
       companies: companies || "",
-      address: address || "",
+      yelp: address || "",
       city: city || ""
     };
   },
