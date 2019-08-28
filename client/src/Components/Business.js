@@ -13,8 +13,6 @@ const Business = props =>{
 
             <Button > Update Business </Button><br></br>
 
-            <Button > View Stats </Button> <br></br>
-
             <Button > Delete Business </Button> <br></br>
         </Card>
     )

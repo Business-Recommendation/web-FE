@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
 import {Button, Card, Input} from "semantic-ui-react"
 import {pushData, grabData} from "../actions"
+import { Link } from 'react-router-dom'
+
 
 import Business from "./Business.js"
 
@@ -48,7 +50,7 @@ const ListingPage = (props) =>{
                     <Button >Add New Business</Button>
                     
                 </form>  
-                <Button >View Stats</Button>       
+                <Link to='/stats'><Button >View Stats</Button> </Link>               
             </Card>
 
             {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.data.id}/>)}
