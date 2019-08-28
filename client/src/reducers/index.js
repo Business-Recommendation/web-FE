@@ -30,13 +30,15 @@ export const businessRecommendReducer = (state = initialState, action) => {
         case POST_LOGIN_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             }
         case POST_LOGIN_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                isLoggedIn: true
+                isLoggedIn: true,
+                error: null
             }
         case POST_LOGIN_FAIL:
             return {
@@ -47,12 +49,14 @@ export const businessRecommendReducer = (state = initialState, action) => {
         case POST_REGISTER_START:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             }
         case POST_REGISTER_SUCCESS:
             return {
                 ...state,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
         case POST_REGISTER_FAIL:
             return {
