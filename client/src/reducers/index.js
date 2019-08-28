@@ -6,9 +6,9 @@ import {
     POST_REGISTER_SUCCESS,
     POST_REGISTER_FAIL,
     LOGOUT_USER,
-    GET,
-    PUSH,
-    FAILED,
+    GET_DATA_SUCCESS,
+    PUSH_DATA_SUCCES,
+    DATA_FAILED,
     PUT_DATA_START,
     PUT_DATA_SUCCESS,
     PUT_DATA_FAIL,
@@ -65,19 +65,19 @@ export const businessRecommendReducer = (state = initialState, action) => {
                 ...state,
                 isLoggedIn: false
             }
-        case GET:
+        case GET_DATA_SUCCESS:
             return{
                 ...state,
                 listings: action.payload,
                 error: ''
             }
-        case PUSH:
+        case PUSH_DATA_SUCCES:
             return{
                 ...state,
                 listings: [...state.listings, action.payload],
                 error:''
             }
-        case FAILED:
+        case DATA_FAILED:
             return{
                 ...state,
                 error:'There is an error'
