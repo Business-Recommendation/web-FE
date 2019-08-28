@@ -1,9 +1,16 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
 
 // Constants
 const appBlue = '#423ABA'
+
+export const GlobalStyles = createGlobalStyle`
+  body {
+    @import url('https://db.onlinewebfonts.com/c/7a20d101126c5370e8b5811da3569fb4?family=Sansation');
+    font-family: 'Sansation', Sans-Serif;
+  }
+`
 
 const size = {
     mobileS: '320px',
@@ -23,7 +30,6 @@ const device = {
 export const PageContainer = styled.div`
     position: relative;
     min-height: 100vh;
-    background-color: white;
     h1:first-child,
     h2:first-child,
     h3:first-child,
@@ -97,10 +103,12 @@ export const StyledLandingPage = styled.div`
 
     h1:first-child {
         margin-top: 15px;
+        color: black;
     }
 
     h2:first-child {
         margin-top: 0;
+        color: black;
     }
 
     .ui.grid.tablet-show {
@@ -113,12 +121,24 @@ export const StyledLandingPage = styled.div`
         @media ${device.tablet} {
             display: flex;
         }
+
+        @media ${device.mobileL} {
+            display: none;
+        }
     }
 
-    @media ${device.tablet} {
+    .ui.grid.mobile-hide {
 
-        .tablet-show {
-            display: flex;
+        @media ${device.mobileL} {
+            display: none;
+        }
+    }
+
+    .mobile-only {
+        display: none;
+
+        @media ${device.mobileL} {
+            display: block;
         }
     }
 `
@@ -131,6 +151,18 @@ export const StyledTagLine = styled.h1`
     @media ${device.tablet} {
         font-size: 3rem;
     }
+
+    @media ${device.mobileL} {
+        font-size: 2.4rem;
+    }
+
+    @media ${device.mobileM} {
+        font-size: 2rem;
+    }
+
+    @media ${device.mobileS} {
+        font-size: 1.8rem;
+    }
 `
 
 export const StyledLandingPageHR = styled.hr`
@@ -138,6 +170,14 @@ export const StyledLandingPageHR = styled.hr`
 
     @media ${device.tablet} {
         margin: 0.5rem 30%;
+    }
+
+    @media ${device.mobileL} {
+        margin: 0.5rem 25%;
+    }
+
+    @media ${device.mobileM} {
+        margin: 0.5rem 20%;
     }
 `
 
@@ -149,16 +189,55 @@ export const StyledLandingPageSubheader = styled.h2`
     @media ${device.tablet} {
         font-size: 2.4rem;
     }
+
+    @media ${device.mobileL} {
+        font-size: 2rem;
+    }
+
+    @media ${device.mobileM} {
+        font-size: 1.6rem;
+    }
+
+    @media ${device.mobileS} {
+        font-size: 1.2rem;
+    }
 `
 
 export const StylingLandingPageImg = styled(Image)`
     max-width: 350px;
     width: 100%;
+
+    @media ${device.mobileL} {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    @media ${device.mobileM} {
+        width: 275px;
+    }
+
+    @media ${device.mobileS} {
+        width: 250px;
+    }
 `
 
 export const StylingLandingPageArrow = styled(Image)`
     max-width: 125px;
     width: 100%;
+
+    @media ${device.mobileL} {
+        transform: rotate(90deg);
+        width: 100px;
+        margin: 0 auto;
+    }
+
+    @media ${device.mobileM} {
+        width: 75px;
+    }
+
+    @media ${device.mobileS} {
+        width: 50px;
+    }
 `
 
 // @@@@@@@@@@@@@@@@@@@@ Footer @@@@@@@@@@@@@@@@@@@@
@@ -204,6 +283,15 @@ export const StyledFooterNavLink = styled(NavLink)`
         text-align: center;
         margin: 1rem 0;
         width: 50%;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 1.2rem;
+    }
+
+    @media ${device.mobileM} {
+        margin: 0.5rem;
+        font-size: 1rem;
     }
 `
 
