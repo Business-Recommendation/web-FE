@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export const POST_LOGIN_START = "POST_LOGIN_START"
 export const POST_LOGIN_SUCCESS = "POST_LOGIN_SUCCESS"
@@ -85,16 +86,16 @@ export const grabData = () =>{
 
 export const putData = (listing) => dispatch => {
     dispatch({ type: PUT_DATA_START })
-    axios
-        .put(`https://bizrecommendations.herokuapp.com/UPDATE/LINK/${listing.id}`, listing) //need to change url based on docs
+    axiosWithAuth()
+        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`, listing)
         .then(res => dispatch({ type: PUT_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: PUT_DATA_FAIL, payload: err.response }))
 }
 
 export const deleteData = (listing) => dispatch => {
     dispatch({ type: DELETE_DATA_START })
-    axios
-        .put(`https://bizrecommendations.herokuapp.com/UPDATE/LINK/${listing.id}`) //need to change url based on docs
+    axiosWithAuth()
+        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
         .then(res => dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_DATA_FAIL, payload: err.response }))
 }
