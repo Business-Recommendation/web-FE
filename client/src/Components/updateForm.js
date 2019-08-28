@@ -20,6 +20,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 
   return (
     <div className="business-form">
+      <Form>
       <h1>Business Form</h1>
         <Field type="text" name="companies" placeholder="Business Name" />
         {touched.companies && errors.companies && (
