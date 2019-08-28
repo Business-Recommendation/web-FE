@@ -12,9 +12,9 @@ export const POST_REGISTER_FAIL = 'POST_REGISTER_FAIL'
 export const LOGOUT_USER = 'LOGOUT_USER'
 
 //Specific to the getting and pushing of data. To be used on update and Add
-export const GET = "GET"
-export const PUSH = "PUSH"
-export const FAILED="FAILED"
+export const GET_DATA_SUCCESS = "GET_DATA_SUCCESS"
+export const PUSH_DATA_SUCCES = "PUSH_DATA_SUCCES"
+export const DATA_FAILED="DATA_FAILED"
 
 export const PUT_DATA_START = 'PUT_DATA_START'
 export const PUT_DATA_SUCCESS = 'PUT_DATA_SUCCESS'
@@ -23,6 +23,8 @@ export const PUT_DATA_FAIL = 'PUT_DATA_FAIL'
 export const DELETE_DATA_START = 'DELETE_DATA_START'
 export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS'
 export const DELETE_DATA_FAIL = 'DELETE_DATA_FAIL'
+
+
 
 export const login = (creds, history) => dispatch => {
     dispatch({ type: POST_LOGIN_START})
@@ -57,14 +59,15 @@ export const logout = () => dispatch => {
 
 export const pushData= (props) =>{
     return dispatch =>{
-        dispatch ({type: GET });
-        axios.post("N/A", props)
+        dispatch ({type: PUSH_DATA_SUCCES });
+        axiosWithAuth()
+        .post("https://bizrecommendations.herokuapp.com/api/biz/listings", props)
         .then(res =>{
             console.log("push", res)
-            dispatch({type: GET, payload:res.data});
+            dispatch({type: PUSH_DATA_SUCCES, payload:res.data});
         })
         .catch(err => {
-            dispatch({type: FAILED, payload: err.response})
+            dispatch({type: DATA_FAILED, payload: err.response})
         })
     }
 
@@ -72,14 +75,15 @@ export const pushData= (props) =>{
 
 export const grabData = () =>{
     return dispatch =>{
-        dispatch ({type: PUSH });
-        axios.get("N/A")
+        dispatch ({type: GET_DATA_SUCCESS });
+        axiosWithAuth()
+        .get("https://bizrecommendations.herokuapp.com/api/biz/listings")
         .then(res =>{
-            console.log("pull",res.data)
-            dispatch({type: PUSH, payload:res.data});
+            console.log("get",res.data)
+            dispatch({type: GET_DATA_SUCCESS, payload:res.data});
         })
         .catch(err => {
-            dispatch({type: FAILED, payload: err.response})
+            dispatch({type: DATA_FAILED, payload: err.response})
         })
     }
 }
