@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
+import { FormComponents } from './FormComponents';
 
 import './style.css'
 
@@ -21,11 +22,14 @@ const UpdateForm = ({ errors, touched, values, status }) => {
     <div className="business-form">
       <h1>Business Form</h1>
       <Form>
+        <label> 
+          Business Name:
         <Field type="text" name="companies" placeholder="Business Name" />
+        </label>
         {touched.companies && errors.companies && (
           <p className="error">{errors.companies}</p>
         )}
-
+<FormComponents>
         <Field type="text" name="city" placeholder="City" className="city"/>
         {touched.city && errors.city && <p className="error">{errors.city}</p>}
 
@@ -37,7 +41,7 @@ const UpdateForm = ({ errors, touched, values, status }) => {
             })
           }
         </Field>
-
+</FormComponents>
         <Field type="text" name="address" placeholder="Yelp Link" />
         {touched.address && errors.address && <p className="error">{errors.address}</p>}
 
@@ -69,9 +73,9 @@ const FormikUpdateForm = withFormik({
   },
 
   validationSchema: Yup.object().shape({
-    species: Yup.string().required("You silly!!!"),
-    size: Yup.string().required(),
-    notes: Yup.string()
+    companies: Yup.string().required("You silly!!!"),
+    yelp: Yup.string().required(),
+    city: Yup.string()
   }),
 
   handleSubmit(values, { setStatus }) {
