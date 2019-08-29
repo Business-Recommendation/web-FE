@@ -52,7 +52,7 @@ const ListingPage = (props) =>{
                 <Link to='/stats'><Button >View Stats</Button> </Link>               
             </Card>
 
-            {props.list.listings && props.list.listings.map(info => <Business data={info} key={info.data.id} deleteData={props.deleteData}/>)}
+            {props.list.listings && props.list.listings.map(info => <Business data={info} key={`${info.id}${Date.now()}`} deleteData={props.deleteData}/>)}
 
         </Card.Group>
     )
