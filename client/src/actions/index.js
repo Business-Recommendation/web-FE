@@ -98,7 +98,6 @@ export const putData = (listing) => dispatch => {
 }
 
 export const deleteData = (listing) => dispatch => {
-    console.log(listing)
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
         .delete(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
