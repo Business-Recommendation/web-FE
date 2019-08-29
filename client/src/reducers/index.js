@@ -78,7 +78,7 @@ export const businessRecommendReducer = (state = initialState, action) => {
         case PUSH_DATA_SUCCES:
             return{
                 ...state,
-                listings: [...state.listings, action.payload],
+                listings: action.payload,
                 error:''
             }
         case DATA_FAILED:
