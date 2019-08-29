@@ -431,20 +431,20 @@ export const StyledLoginFormContainer = styled.div`
     }
 
     label {
-        margin-bottom: 0px;
+        margin-bottom: 0px !important;
     }
 
     p {
-        margin-bottom: 0px;
+        margin-bottom: 0px !important;
     }
 
     input {
-        margin-bottom: 25px;
+        margin-bottom: 25px !important;
     }
 
     h1 {
         margin-top: 10px !important;
-        margin-bottom: 5px;
+        margin-bottom: 5px !important;
     }
 `
 
