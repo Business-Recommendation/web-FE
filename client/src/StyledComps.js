@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
+import { Form, Field } from 'formik'
 
 // Constants
 const appBlue = '#423ABA'
@@ -319,5 +320,300 @@ export const StyledMobileNav = styled.div`
 
     @media ${device.tablet} {
         display: flex;
+    }
+`
+
+// @@@@@@@@@@@@@@@@@@@@ Login @@@@@@@@@@@@@@@@@@@@
+
+export const StyledLoginContainer = styled.div`
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+`
+
+export const StyledLoginFormContainer = styled.div`
+    margin: 0 auto;
+    width: 775px;
+    height: 398px;
+    background-color: ${appBlue};
+    margin-top: 182px;
+
+    @media ${device.mobileL} {
+        width: 500px;
+        margin-top: 10px;
+    }
+
+    @media ${device.mobileM} {
+        width: 100%;
+        margin: 100px 0px 50px 0px;
+    }
+
+    @media ${device.mobileS} {
+        margin: 50px 0px 10px 0px;
+    }
+`
+
+export const StyledLoginBurger = styled(Image)`
+    position: relative;
+    width: 515px;
+    height: 296px;
+    margin-top: 290px;
+
+    @media (max-width: 1024px) {
+            display: none !important;
+    }
+`
+
+export const StyledLoginCone = styled(Image)`
+    position: relative;
+    width: 361px;
+    height: 296px;
+    margin: 0 auto;
+    margin-top: -230px;
+    
+
+    @media ${device.mobileL} {
+        display: none !important;
+    }
+`
+
+export const StyledLoginCupcake = styled(Image)`
+    position: relative;
+    width: 385px;
+    height: 373px;
+    margin-top: 230px;
+    margin-right: 107px;
+
+    @media (max-width: 1024px) {
+            display: none !important;
+    }
+`
+
+export const StyledLoginForm = styled(Form)`
+    /* border: red 5px solid; */
+    margin: 0 auto;
+    margin: 15px 69px 63px 64px;
+
+    @media ${device.mobileM} {
+        margin: 10px;
+    }
+`
+
+export const StyledLoginLabel = styled.label`
+    font-family: 'Sansation', Sans-Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 27px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    color: white;
+
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+
+`
+
+export const StyledLoginFieldError = styled.p`
+    color: white;
+    margin-bottom: 0px;
+`
+
+export const StyledLoginError = styled.h1`
+    height: 20px;
+    width: 100%;
+    color: rgba(255, 0, 0, 0.8);
+    font-size: 16px;
+    background-color: white;
+    text-align: center;
+
+    @media ${device.mobileM} {
+        font-size: 16px;
+        width: 98%;
+        height: 40px;
+    }
+
+`
+
+export const StyledLoginField = styled(Field)`
+    /* width: 642px; */
+    width: 100%;
+    height: 45px;
+    margin-bottom: 25px;
+
+    @media ${device.mobileM} {
+        width: 98%;
+    }
+`
+
+export const StyledLoginButton = styled.button`
+    max-width: 100%;
+    width: 100%;
+    height: 65px;
+    font-family: 'Sansation', Sans-Serif;
+    font-size: 36px;
+    line-height: 40px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    color: ${appBlue};
+    background: white;
+
+    @media ${device.mobileM} {
+        font-size: 16px;
+        width: 98%;
+    }
+
+`
+
+// @@@@@@@@@@@@@@@@@@@@ Register @@@@@@@@@@@@@@@@@@@@
+
+export const StyledRegisterContainer = styled.div`
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+`
+
+export const StyledRegisterFormContainer = styled.div`
+    margin: 0 auto;
+    width: 775px;
+    height: 550px;
+    background-color: ${appBlue};
+    margin-top: 182px;
+
+    @media ${device.mobileL} {
+        width: 500px;
+        margin-top: 10px;
+    }
+
+    @media ${device.mobileM} {
+        width: 100%;
+        margin: 100px 0px 50px 0px;
+    }
+
+    @media ${device.mobileS} {
+        margin: 50px 0px 10px 0px;
+    }
+`
+
+export const StyledRegisterImg = styled(Image)`
+    /* left: 30.31%;
+    right: 28%;
+    top: 31.38%;
+    bottom: 26.65%; */
+`
+
+export const StyledRegisterForm = styled(Form)`
+    /* border: red 5px solid; */
+    margin: 15px 69px 63px 64px;
+
+    @media ${device.mobileM} {
+        margin: 10px;
+    }
+`
+
+export const StyledRegisterLabel = styled.label`
+    font-family: 'Sansation', Sans-Serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 27px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    color: white;
+
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+
+`
+
+export const StyledRegisterBurger = styled(Image)`
+    position: relative;
+    width: 515px;
+    height: 296px;
+    margin-top: 290px;
+
+    @media (max-width: 1024px) {
+            display: none !important;
+    }
+`
+
+export const StyledRegisterCone = styled(Image)`
+    position: relative;
+    width: 361px;
+    height: 296px;
+    margin: 0 auto;
+    margin-top: -230px;
+    
+
+    @media ${device.mobileL} {
+        display: none !important;
+    }
+`
+
+export const StyledRegisterCupcake = styled(Image)`
+    position: relative;
+    width: 385px;
+    height: 373px;
+    margin-top: 230px;
+    margin-right: 107px;
+
+    @media (max-width: 1024px) {
+            display: none !important;
+    }
+`
+
+export const StyledRegisterFieldError = styled.p`
+    color: white;
+    margin-bottom: 0px;
+`
+
+export const StyledRegisterError = styled.h1`
+    height: 20px;
+    width: 100%;
+    color: rgba(255, 0, 0, 0.8);
+    font-size: 16px;
+    background-color: white;
+    text-align: center;
+
+    @media ${device.mobileM} {
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+    }
+`
+
+export const StyledRegisterField = styled(Field)`
+    width: 100%;
+    height: 45px;
+    margin-bottom: 25px;
+
+    @media ${device.mobileM} {
+        width: 100%;
+    }
+`
+
+export const StyledRegisterButton = styled.button`
+    max-width: 100%;
+    width: 100%;
+    height: 65px;
+    font-family: 'Sansation', Sans-Serif;
+    font-size: 36px;
+    line-height: 40px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    color: ${appBlue};
+    background: white;
+
+    @media ${device.mobileM} {
+        font-size: 16px;
+        width: 100%;
     }
 `
