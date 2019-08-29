@@ -109,6 +109,17 @@ const FadeIn = keyframes`
     }
 `;
 
+const FadeStartLeft = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`
+
 export const StyledLandingPage = styled.div`
     margin-bottom: 2rem;
 
@@ -158,6 +169,9 @@ export const StyledTagLine = styled.h1`
     font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.6rem;
+    opacity: 0;
+    animation: ${FadeStartLeft} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.tablet} {
         font-size: 3rem;
@@ -178,6 +192,9 @@ export const StyledTagLine = styled.h1`
 
 export const StyledLandingPageHR = styled.hr`
     margin: 0.5rem 40%;
+    opacity: 0;
+    animation: ${FadeStartLeft} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.tablet} {
         margin: 0.5rem 30%;
