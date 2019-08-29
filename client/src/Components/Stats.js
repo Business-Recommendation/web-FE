@@ -28,19 +28,14 @@ margin-top: 2rem;
 
 const Stats = (props) =>{
 
+    console.log("props", props)
+
+
     return (
         <StyleMainCard >
-        {props.stats && <Card.Header>Business Name: <br></br>{props.Name}</Card.Header>}
-        {props.stats && props.stats.map(info => {
-            return (
-                <StyleCard>
-                    <Card.Content>Term : {info.term}</Card.Content>
-                    <Card.Content>High Rating Score: {info.highratingscore}</Card.Content>
-                    <Card.Content>Low Rating Score: {info.poorratingscore}</Card.Content>
-                </StyleCard>
-            )
-            }
-        )}
+            <Card.Header>Business Name: <br></br>{props.Name}</Card.Header>
+                    <StyleCard>High Rating Terms: {props.stats.highratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
+                    <StyleCard>Low Rating Terms: {props.stats.lowratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
         </StyleMainCard>
     )
 }
