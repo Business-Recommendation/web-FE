@@ -89,10 +89,10 @@ export const grabData = () =>{
     }
 }
 
-export const putData = (listing) => dispatch => {
+export const putData = (listing, listingId) => dispatch => {
     dispatch({ type: PUT_DATA_START })
     axiosWithAuth()
-        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`, listing)
+        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/update/${listingId}`, listing)
         .then(res => dispatch({ type: PUT_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: PUT_DATA_FAIL, payload: err.response }))
 }
@@ -100,7 +100,7 @@ export const putData = (listing) => dispatch => {
 export const deleteData = (listing) => dispatch => {
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
-        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
+        .delete(`https://bizrecommendations.herokuapp.com/api/biz/listings/${listing.id}`)
         .then(res => dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_DATA_FAIL, payload: err.response }))
 }
