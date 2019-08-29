@@ -6,8 +6,8 @@ import {Button, Card, Image} from "semantic-ui-react"
 const Stats = (props) =>{
 
     return (
-        <Card>
-        <Card.Header>Business Name: {props.Name}</Card.Header>
+        <Card >
+        {props.stats && <Card.Header>Business Name: <br></br>{props.Name}</Card.Header>}
         {props.stats && props.stats.map(info => {
             return (
                 <Card>

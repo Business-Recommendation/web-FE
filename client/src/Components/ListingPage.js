@@ -33,6 +33,8 @@ const ListingPage = (props) =>{
         })
     };
 
+    
+
     console.log("hello", props.list.listings)
 
     //I will have to map through the data to add the card with Biz name and buttons
