@@ -440,11 +440,16 @@ export const StyledLoginFormContainer = styled.div`
 
     input {
         margin-bottom: 25px !important;
+        margin-top: 0px !important;
     }
 
     h1 {
         margin-top: 10px !important;
         margin-bottom: 5px !important;
+    }
+    
+    button {
+        margin: 0px !important;
     }
 `
 
