@@ -334,7 +334,7 @@ export const StyledLoginContainer = styled.div`
 export const StyledLoginFormContainer = styled.div`
     margin: 0 auto;
     width: 775px;
-    height: 398px;
+    height: 410px;
     background-color: ${appBlue};
     margin-top: 182px;
 
@@ -350,6 +350,23 @@ export const StyledLoginFormContainer = styled.div`
 
     @media ${device.mobileS} {
         margin: 50px 0px 10px 0px;
+    }
+
+    label {
+        margin-bottom: 0px;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+
+    input {
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        margin-top: 10px !important;
+        margin-bottom: 5px;
     }
 `
 
@@ -390,9 +407,8 @@ export const StyledLoginCupcake = styled(Image)`
 `
 
 export const StyledLoginForm = styled(Form)`
-    /* border: red 5px solid; */
     margin: 0 auto;
-    margin: 15px 69px 63px 64px;
+    margin: 0px 69px 0px 64px;
 
     @media ${device.mobileM} {
         margin: 10px;
@@ -405,7 +421,6 @@ export const StyledLoginLabel = styled.label`
     font-weight: normal;
     font-size: 24px;
     line-height: 27px;
-    margin-bottom: 0;
     text-transform: uppercase;
     font-variant: small-caps;
     color: white;
@@ -418,7 +433,6 @@ export const StyledLoginLabel = styled.label`
 
 export const StyledLoginFieldError = styled.p`
     color: white;
-    margin-bottom: 0px;
 `
 
 export const StyledLoginError = styled.h1`
@@ -441,7 +455,7 @@ export const StyledLoginField = styled(Field)`
     /* width: 642px; */
     width: 100%;
     height: 45px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 
     @media ${device.mobileM} {
         width: 98%;
@@ -497,13 +511,6 @@ export const StyledRegisterFormContainer = styled.div`
     @media ${device.mobileS} {
         margin: 50px 0px 10px 0px;
     }
-`
-
-export const StyledRegisterImg = styled(Image)`
-    /* left: 30.31%;
-    right: 28%;
-    top: 31.38%;
-    bottom: 26.65%; */
 `
 
 export const StyledRegisterForm = styled(Form)`
