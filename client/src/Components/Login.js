@@ -4,33 +4,41 @@ import { login } from '../actions'
 import { Form, Field, withFormik } from 'formik'
 import * as Yup from 'yup'
 
+import { StyledLoginContainer, StyledLoginFormContainer, StyledLoginImg, StyledLoginForm, StyledLoginLabel, StyledLoginFieldError, StyledLoginField, StyledLoginButton, StyledLoginError, StyledLoginBurger, StyledLoginCone, StyledLoginCupcake } from '../StyledComps'
+
 const Login = ({ errors, touched, login, history, error }) => {
     console.log('Error from redux', error)
 
     return (
-        <div>
-            {/* <h1>Error: {error}</h1> */}
-            {error === 'Invalid username or password, please try again with a new one' && <h1>{error}</h1>}
-            <Form className='registerForm'>
-                <Field type='text' name='username' placeholder='Username' className='registerFormField' />
-                {touched.username && errors.username && (
-                    <p className='errorMessage'>{errors.username}</p>
-                )}
-                <Field type='password' name='password' placeholder='Password' className='registerFormField' />
-                {touched.password && errors.password && (
-                    <p className='errorMessage'>{errors.password}</p>
-                )}
-                <button type='submit'>Login</button>
-            </Form>
-        </div>
+        <StyledLoginContainer>
+            <StyledLoginBurger src={require(`../assets/login-burger.png`)} alt='burger' />
+            <StyledLoginFormContainer>
+            <StyledLoginCone src={require(`../assets/login-cone.png`)} alt='cone' />
+                <StyledLoginForm>
+                {error === 'Invalid username or password, please try again with a new one' && <StyledLoginError>{error}</StyledLoginError>}
+                    <StyledLoginLabel>Username:</StyledLoginLabel>
+                    {touched.username && errors.username && (
+                        <StyledLoginFieldError>{errors.username}</StyledLoginFieldError>
+                    )}
+                    <StyledLoginField type='text' name='username' placeholder='Username' className='registerFormField' />
+                    <StyledLoginLabel>Password:</StyledLoginLabel>
+                    {touched.password && errors.password && (
+                        <StyledLoginFieldError>{errors.password}</StyledLoginFieldError>
+                    )}
+                    <StyledLoginField type='password' name='password' placeholder='Password' className='registerFormField' />
+                    <StyledLoginButton type='submit'>Login</StyledLoginButton>
+                </StyledLoginForm>
+            </StyledLoginFormContainer>
+            <StyledLoginCupcake src={require(`../assets/login-cupcake.png`)} alt='cupcake' />
+        </StyledLoginContainer>
     )
 }
 
 const FormikLoginForm = withFormik({
-    mapPropsToValues({username, password}) {
+    mapPropsToValues({ username, password }) {
         return {
             username: username || '',
-            password: password || ''         
+            password: password || ''
         }
     },
 
