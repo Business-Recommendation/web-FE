@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
+import { connect } from 'react-redux'
+
+import { putData } from '../actions'
 import { FormComponents } from './FormComponents';
 
 import './style.css'
 
+const states = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY']
+
 const UpdateForm = ({ errors, touched, values, status }) => {
   const [business, setBusiness] = useState([]);
-  
-
-  const states = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY']
 
   useEffect(() => {
     if (status) {
@@ -20,14 +21,11 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 
   return (
     <div className="business-form">
-      <h1>Business Form</h1>
       <Form>
-        <label> 
-          Business Name:
-        <Field type="text" name="companies" placeholder="Business Name" />
-        </label>
-        {touched.companies && errors.companies && (
-          <p className="error">{errors.companies}</p>
+      <h1>Business Form</h1>
+        <Field type="text" name="name" placeholder="Business Name" />
+        {touched.name && errors.name && (
+          <p className="error">{errors.name}</p>
         )}
 <FormComponents>
         <Field type="text" name="city" placeholder="City" className="city"/>
@@ -36,14 +34,14 @@ const UpdateForm = ({ errors, touched, values, status }) => {
         <Field component="select" className="state-select" name="state">
           <option>State</option>
           {
-            states.map(state => {
-              return <option value={state}>{state}</option>
+            states.map((state, index) => {
+              return <option value={state} key={`${state}${index}`}>{state}</option>
             })
           }
         </Field>
 </FormComponents>
-        <Field type="text" name="address" placeholder="Yelp Link" />
-        {touched.address && errors.address && <p className="error">{errors.address}</p>}
+        <Field type="text" name="yelp_url" placeholder="Yelp Link" />
+        {touched.yelp_url && errors.yelp_url && <p className="error">{errors.yelp_url}</p>}
 
         <button type="submit">Update Biz</button>
       </Form>
@@ -63,32 +61,34 @@ const UpdateForm = ({ errors, touched, values, status }) => {
 
 const FormikUpdateForm = withFormik({
 
-  mapPropsToValues({ companies, address, city, zipcode, state }) {
+  mapPropsToValues({ name, yelp_url, city, state, history }) {
+    const dataToEdit = history.location.state
+
     return {
       state: state || "",
-      companies: companies || "",
-      yelp: address || "",
+      name: name || dataToEdit.name,
+      yelp_url: yelp_url || dataToEdit.yelp_url,
       city: city || ""
     };
   },
 
   validationSchema: Yup.object().shape({
-    companies: Yup.string().required("You silly!!!"),
-    yelp: Yup.string().required(),
+    name: Yup.string().required("You silly!!!"),
+    yelp_url: Yup.string().required(),
     city: Yup.string()
   }),
 
-  handleSubmit(values, { setStatus }) {
-    console.log(values)
-    axios
-      // values is our object with all our data on it.
-      .post("https://reqres.in/api/users/", values)
-      .then(res => {
-        setStatus(res.data);
-      })
-      .catch(err => console.log(err.response));
+  handleSubmit(values, { props, resetForm, setSubmitting }) {
+    let sentValues = { yelp_url: values.yelp_url }
+    let targetId = props.history.location.state.id
+
+    props.putData(sentValues, targetId)
+    resetForm()
+    setSubmitting(false)
+    props.history.push('/listings')
   }
 })(UpdateForm);
-export default FormikUpdateForm;
+
+export default connect(null, { putData })(FormikUpdateForm);
 
 
