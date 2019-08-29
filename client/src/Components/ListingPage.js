@@ -6,6 +6,42 @@ import { Link } from 'react-router-dom'
 import {pushData, grabData, deleteData} from "../actions"
 import Business from "./Business.js"
 
+import styled from "styled-components";
+
+const StyleCard = styled.div`
+width: 650px; 
+height: 30%; 
+background: #423ABA; 
+color: white;
+border: 3px solid rgba; 
+border-radius: 2%; 
+text-align: left;
+font-weight: bold; 
+font-size: 1rem; 
+margin-left: 1rem;
+margin-top: 2rem;
+padding: .5%;
+
+`
+
+const StyleFlex = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+`
+const StyleButton = styled.button`
+width: 1500%; 
+height: 80%; 
+margin: 5px;
+padding: 5px;
+background: white; 
+color: #423ABA;
+border: 3px solid rgba; 
+border-radius: 2%; 
+text-align: left;
+
+`
+
 const ListingPage = (props) =>{
     const [list, setList] = useState({
         name:'',
@@ -32,6 +68,8 @@ const ListingPage = (props) =>{
         })
     };
 
+    
+
     console.log("hello", props.list.listings)
 
     //I will have to map through the data to add the card with Biz name and buttons
@@ -42,15 +80,19 @@ const ListingPage = (props) =>{
 
             {//Card that hold a button to add more business}
              }
-            <Card style={{width: "650px" }}>
+            <StyleCard >
                 <form onSubmit={addNewBusiness}>
                     <label>Restaurant Name</label><Input type ="text" name="name"value={list.name} onChange={handleChanges} placeholder="Restaurant Name" />
                     <label>Yelp Url</label><Input type ="text" name="yelp_url" value={list.yelp_url} onChange={handleChanges} placeholder="Yelp URL"/>
-                    <Button >Add New Business</Button>
-                    
+                    <StyleFlex>
+
+                        <StyleButton >Add New Business</StyleButton>
+                        <Link to='/stats'><StyleButton >View Stats</StyleButton> </Link>                   
+
+                    </StyleFlex>
                 </form>  
-                <Link to='/stats'><Button >View Stats</Button> </Link>               
-            </Card>
+                              
+            </StyleCard>
 
             {props.list.listings && props.list.listings.map(info => <Business data={info} key={`${info.id}${Date.now()}`} deleteData={props.deleteData}/>)}
 
