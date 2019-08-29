@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
 import { Form, Field } from 'formik'
@@ -19,6 +19,61 @@ const device = {
     mobileL: `(max-width: ${size.mobileL})`,
     tablet: `(max-width: ${size.tablet})`
 }
+
+//Keyframes
+const SlideDown = keyframes`
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(0px);
+        position: static;
+    }
+`
+
+const SlideUp = keyframes`
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-100px);
+        position: absolute;
+    }
+`
+
+const TabletSlideUp = keyframes`
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-100px);
+        position: fixed;
+    }
+`
+
+const FadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+`;
+
+const FadeStartLeft = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`
 
 // @@@@@@@@@@@@@@@@@@@@ Global @@@@@@@@@@@@@@@@@@@@
 export const GlobalStyles = createGlobalStyle`
@@ -54,10 +109,14 @@ export const StyledNavBar = styled.div`
     justify-content: space-between;
     background-color: ${appBlue};
     width: 100%;
+    top: -100px;
+    animation: ${SlideDown} 2s linear forwards;
+    position: fixed;
 
     @media ${device.tablet} {
         flex-direction: column;
         padding-bottom: 5px;
+        animation: ${SlideDown} 1s linear forwards;
     }
 `
 
@@ -117,7 +176,7 @@ export const StyledLandingPage = styled.div`
         display: none;
 
         .diagonal-arrow {
-            transform: rotate(135deg)
+            transform: rotate(135deg);
         }
 
         @media ${device.tablet} {
@@ -149,9 +208,13 @@ export const StyledTagLine = styled.h1`
     font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.6rem;
+    opacity: 0;
+    animation: ${FadeStartLeft} 1s linear forwards;
+    animation-delay: 6s;
 
     @media ${device.tablet} {
         font-size: 3rem;
+        animation-delay: 0s;
     }
 
     @media ${device.mobileL} {
@@ -169,9 +232,13 @@ export const StyledTagLine = styled.h1`
 
 export const StyledLandingPageHR = styled.hr`
     margin: 0.5rem 40%;
+    opacity: 0;
+    animation: ${FadeStartLeft} 1s linear forwards;
+    animation-delay: 6s;
 
     @media ${device.tablet} {
         margin: 0.5rem 30%;
+        animation-delay: 0s;
     }
 
     @media ${device.mobileL} {
@@ -187,6 +254,9 @@ export const StyledLandingPageSubheader = styled.h2`
     font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.2rem;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.tablet} {
         font-size: 2.4rem;
@@ -208,6 +278,9 @@ export const StyledLandingPageSubheader = styled.h2`
 export const StylingLandingPageImg = styled(Image)`
     max-width: 350px;
     width: 100%;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.mobileL} {
         width: 300px;
@@ -226,6 +299,9 @@ export const StylingLandingPageImg = styled(Image)`
 export const StylingLandingPageArrow = styled(Image)`
     max-width: 125px;
     width: 100%;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.mobileL} {
         transform: rotate(90deg);
@@ -244,7 +320,7 @@ export const StylingLandingPageArrow = styled(Image)`
 
 // @@@@@@@@@@@@@@@@@@@@ Footer @@@@@@@@@@@@@@@@@@@@
 export const StyledFooter = styled.div`
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
@@ -253,6 +329,8 @@ export const StyledFooter = styled.div`
     color: white;
     background-color: ${appBlue};
     border-top: solid black 1px;
+    bottom: -100px;
+    animation: ${SlideUp} 2s linear forwards;
 
     p:first-child {
         position: relative;
@@ -260,7 +338,7 @@ export const StyledFooter = styled.div`
     }
 
     @media ${device.tablet} {
-        position: fixed;
+        animation: ${TabletSlideUp} 1s linear forwards;
     }
 `
 
