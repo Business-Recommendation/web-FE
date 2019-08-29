@@ -594,6 +594,28 @@ export const StyledRegisterFormContainer = styled.div`
     @media ${device.mobileS} {
         margin: 50px 0px 10px 0px;
     }
+
+    label {
+        margin-bottom: 0px !important;
+    }
+
+    p {
+        margin-bottom: 0px !important;
+    }
+
+    input {
+        margin-bottom: 25px !important;
+        margin-top: 0px !important;
+    }
+
+    h1 {
+        margin-top: 10px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    button {
+        margin: 0px !important;
+    }
 `
 
 export const StyledRegisterForm = styled(Form)`
