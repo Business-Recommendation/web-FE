@@ -78,12 +78,11 @@ const FormikUpdateForm = withFormik({
     city: Yup.string()
   }),
 
-  handleSubmit(values, { props, resetForm, setSubmitting, setStatus }) {
-    let editedValues = { ...values, id: props.history.location.state.id } //add in the target listing's id
+  handleSubmit(values, { props, resetForm, setSubmitting }) {
+    let sentValues = { yelp_url: values.yelp_url }
+    let targetId = props.history.location.state.id
 
-    setStatus(editedValues)
-
-    props.putData(editedValues)
+    props.putData(sentValues, targetId)
     resetForm()
     setSubmitting(false)
     props.history.push('/listings')
