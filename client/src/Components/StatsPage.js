@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {grabData} from "../actions"
 import Stats from "./Stats.js"
 
+import './style.css'
+
 const StatsPage = (props) =>{
 
     
