@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { Image } from 'semantic-ui-react'
 
@@ -99,6 +99,16 @@ export const StyledNavLinkContainer = styled.div`
 `
 
 // @@@@@@@@@@@@@@@@@@@@ Landing Page @@@@@@@@@@@@@@@@@@@@
+const FadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+`;
+
 export const StyledLandingPage = styled.div`
     margin-bottom: 2rem;
 
@@ -116,7 +126,7 @@ export const StyledLandingPage = styled.div`
         display: none;
 
         .diagonal-arrow {
-            transform: rotate(135deg)
+            transform: rotate(135deg);
         }
 
         @media ${device.tablet} {
@@ -186,6 +196,9 @@ export const StyledLandingPageSubheader = styled.h2`
     font-family: 'Sansation', Sans-Serif;
     text-align: center;
     font-size: 3.2rem;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.tablet} {
         font-size: 2.4rem;
@@ -207,6 +220,9 @@ export const StyledLandingPageSubheader = styled.h2`
 export const StylingLandingPageImg = styled(Image)`
     max-width: 350px;
     width: 100%;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.mobileL} {
         width: 300px;
@@ -225,6 +241,9 @@ export const StylingLandingPageImg = styled(Image)`
 export const StylingLandingPageArrow = styled(Image)`
     max-width: 125px;
     width: 100%;
+    opacity: 0;
+    animation: ${FadeIn} 1s linear forwards;
+    animation-delay: ${props => props.delay};
 
     @media ${device.mobileL} {
         transform: rotate(90deg);
