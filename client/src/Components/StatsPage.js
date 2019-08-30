@@ -24,7 +24,6 @@ const StatsPage = (props) =>{
 }
 
 const mapStateToProps = state =>{
-    console.log(state)
     return {
         list: state
     }
