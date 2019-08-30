@@ -79,9 +79,7 @@ export const grabData = () =>{
         axiosWithAuth()
         .get("https://bizrecommendations.herokuapp.com/api/biz/listings")
         .then(res =>{
-            console.log("get",res.data)
             dispatch({type: GET_DATA_SUCCESS, payload:res.data});
-            
         })
         .catch(err => {
             dispatch({type: DATA_FAILED, payload: err.response})

@@ -7,7 +7,6 @@ import * as Yup from 'yup'
 import { StyledLoginContainer, StyledLoginFormContainer, StyledLoginImg, StyledLoginForm, StyledLoginLabel, StyledLoginFieldError, StyledLoginField, StyledLoginButton, StyledLoginError, StyledLoginBurger, StyledLoginCone, StyledLoginCupcake } from '../StyledComps'
 
 const Login = ({ errors, touched, login, history, error }) => {
-    console.log('Error from redux', error)
 
     return (
         <StyledLoginContainer>

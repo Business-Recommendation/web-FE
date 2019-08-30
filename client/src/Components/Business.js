@@ -37,8 +37,6 @@ text-align: left;
 `
 
 const Business = props =>{
-    console.log(props.data.id)
-
 
     return(
         <StyleCard>

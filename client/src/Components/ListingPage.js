@@ -49,7 +49,6 @@ const ListingPage = (props) =>{
     })
 
     useEffect(()=>{
-        console.log("useEffect", props.list.listings)
         props.grabData()
     }, [])
 
@@ -67,10 +66,6 @@ const ListingPage = (props) =>{
             yelp_url: ''
         })
     };
-
-    
-
-    console.log("hello", props.list.listings)
 
     //I will have to map through the data to add the card with Biz name and buttons
     // 
@@ -100,7 +95,6 @@ const ListingPage = (props) =>{
     )
 }
 const mapStateToProps = state =>{
-    console.log(state)
     return {
         list: state
     }
