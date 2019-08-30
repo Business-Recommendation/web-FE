@@ -24,18 +24,28 @@ margin-top: 2rem;
 
 `
 
-
+const RT = ['awesome food', 'too loud', 'deals', 'friendly', 'value', 'cold food', 'bad waiters', 'disgusting', 'boring', 'seating', 'rude', 'bad service']
 
 const Stats = (props) =>{
+    const ratingTerms = (arr) => {
+        let termsArray = []
 
-    console.log("props", props)
+        arr.map(word => {
+            let rng = Math.floor(Math.random() * Math.floor(2))
+            if (rng === 1) termsArray.push(word)
+        })
 
+        return termsArray
+    }
 
     return (
         <StyleMainCard >
             <Card.Header>Business Name: <br></br>{props.Name}</Card.Header>
-                    <StyleCard>High Rating Terms: {props.stats.highratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
-                    <StyleCard>Low Rating Terms: {props.stats.lowratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
+                    {/* <StyleCard>High Rating Terms: {props.stats.highratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
+                    <StyleCard>Low Rating Terms: {props.stats.lowratingterms.map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard> */}
+                    <StyleCard>High Rating Terms: {ratingTerms(RT).map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
+                    <StyleCard>Low Rating Terms: {ratingTerms(RT).map(rate => { return ( <Card.Content>{rate}</Card.Content>)})}</StyleCard>
+
         </StyleMainCard>
     )
 }
